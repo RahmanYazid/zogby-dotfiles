@@ -66,7 +66,7 @@ sudo apt install stow
 Clone this dotfiles repository into your home directory.
 
 ```bash
-git clone https://github.com/username/dotfiles.git ~/dotfiles
+https://github.com/RahmanYazid/zogby-dotfiles.git
 ```
 
 ### 3\. Navigate to the Dotfiles Directory
