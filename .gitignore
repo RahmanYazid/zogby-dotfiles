@@ -1,0 +1,21 @@
+# Ignore system-specific junk
+*.log
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Ignore local state / cache
+.cache/
+.local/
+.history/
+
+# Ignore wallpapers if you don’t want them on GitHub
+Wallpapers/
+
+# Ignore compiled binaries
+*.o
+*.out
+*.bin
+

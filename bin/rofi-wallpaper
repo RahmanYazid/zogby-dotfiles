@@ -1,0 +1,82 @@
+#!/bin/bash
+
+# Rofi Wallpaper Selector Script
+# Usage: rofi-wallpaper
+
+# Configuration
+WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
+CACHE_DIR="$HOME/.cache/rofi-wallpaper"
+THUMBNAIL_SIZE="200x120"
+CURRENT_WALLPAPER="$HOME/.current-wallpaper"
+
+# Create directories if they don't exist
+mkdir -p "$WALLPAPER_DIR"
+mkdir -p "$CACHE_DIR"
+
+# Function to set wallpaper (supports multiple wallpaper setters)
+set_wallpaper() {
+    local wallpaper="$1"
+    
+    # Try different wallpaper setters
+    if command -v swww >/dev/null 2>&1; then
+        # For swww (fast wallpaper changer)
+        swww img "$wallpaper" --transition-type wipe --transition-fps 60
+    elif command -v hyprpaper >/dev/null 2>&1; then
+        # For Hyprland
+        hyprctl hyprpaper preload "$wallpaper"
+        hyprctl hyprpaper wallpaper ",$wallpaper"
+    elif command -v swaybg >/dev/null 2>&1; then
+        # For Sway/Hyprland alternative
+        pkill swaybg
+        swaybg -i "$wallpaper" -m fill &
+    elif command -v feh >/dev/null 2>&1; then
+        # For X11 window managers
+        feh --bg-fill "$wallpaper"
+    else
+        notify-send "Error" "No wallpaper setter found (swww, hyprpaper, swaybg, feh)"
+        exit 1
+    fi
+    
+    # Save current wallpaper
+    echo "$wallpaper" > "$CURRENT_WALLPAPER"
+    
+    # Send notification
+    notify-send "Wallpaper Changed" "$(basename "$wallpaper")" -i "$wallpaper"
+}
+
+# Function to show simple list
+show_simple_list() {
+    local wallpapers=()
+    
+    while IFS= read -r -d '' file; do
+        if [[ -f "$file" ]]; then
+            wallpapers+=($(basename "$file"))
+        fi
+    done < <(find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" -o -iname "*.bmp" \) -print0 2>/dev/null)
+    
+    if [[ ${#wallpapers[@]} -eq 0 ]]; then
+        notify-send "No Wallpapers" "No wallpapers found in $WALLPAPER_DIR"
+        exit 1
+    fi
+    
+    # --- The Fix Is Here ---
+    # Add the -theme option to the rofi command
+    selected=$(printf '%s\n' "${wallpapers[@]}" | rofi -dmenu -i -p "󰸉 Select Wallpaper" -theme "$HOME/.config/rofi/wallpaper.rasi")
+    
+    if [[ -n "$selected" ]]; then
+        set_wallpaper "$WALLPAPER_DIR/$selected"
+    fi
+}
+
+# Main execution
+case "${1:-}" in
+    --setup)
+        echo "Setting up wallpaper directory..."
+        mkdir -p "$WALLPAPER_DIR"
+        echo "Wallpaper directory created at: $WALLPAPER_DIR"
+        echo "Please add your wallpapers to this directory."
+        ;;
+    *)
+        show_simple_list
+        ;;
+esac

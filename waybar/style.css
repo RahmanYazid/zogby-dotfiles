@@ -1,0 +1,226 @@
+/* Tokyo Night Waybar Theme */
+
+/* Global Styles */
+* {
+    font-family: 'JetBrains Mono Nerd Font', monospace;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Main Bar */
+window#waybar {
+    background-color: rgba(26, 27, 38, 0.9);
+    color: #c0caf5;
+    border: 1px solid #7aa2f7;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Workspaces */
+#workspaces {
+    background-color: rgba(36, 40, 59, 0.8);
+    border-radius: 6px;
+    margin: 5px;
+    padding: 2px 5px;
+    border: 1px solid rgba(65, 72, 104, 0.6);
+}
+
+#workspaces button {
+    padding: 2px 8px;
+    margin: 0 2px;
+    color: #565f89;
+    background-color: transparent;
+    border: none;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+#workspaces button:hover {
+    background-color: rgba(122, 162, 247, 0.2);
+    color: #7aa2f7;
+    box-shadow: 0 2px 4px rgba(122, 162, 247, 0.3);
+}
+
+#workspaces button.active {
+    background-color: #7aa2f7;
+    color: #1a1b26;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(122, 162, 247, 0.4);
+}
+
+#workspaces button.urgent {
+    background-color: #f7768e;
+    color: #1a1b26;
+    animation: blink 1s linear infinite alternate;
+}
+
+@keyframes blink {
+    to { background-color: rgba(247, 118, 142, 0.5); }
+}
+
+/* Window Title */
+#window {
+    background-color: rgba(36, 40, 59, 0.5);
+    border-radius: 6px;
+    padding: 4px 12px;
+    margin: 5px;
+    border: 1px solid rgba(65, 72, 104, 0.6);
+    color: #a9b1d6;
+    font-weight: 500;
+}
+
+/* Clock */
+#clock {
+    background-color: rgba(187, 154, 247, 0.15);
+    color: #bb9af7;
+    border-radius: 6px;
+    padding: 4px 12px;
+    margin: 5px;
+    border: 1px solid rgba(187, 154, 247, 0.3);
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+#clock:hover {
+    background-color: rgba(187, 154, 247, 0.25);
+    box-shadow: 0 2px 8px rgba(187, 154, 247, 0.3);
+}
+
+/* Right Modules Common Style */
+#cpu, #memory, #battery, #network, #pulseaudio, #tray {
+    background-color: rgba(36, 40, 59, 0.8);
+    border-radius: 6px;
+    padding: 4px 10px;
+    margin: 5px 2px;
+    border: 1px solid rgba(65, 72, 104, 0.6);
+    transition: all 0.3s ease-in-out;
+}
+
+/* CPU */
+#cpu {
+    color: #7dcfff;
+    border-color: rgba(125, 207, 255, 0.3);
+}
+
+#cpu:hover {
+    background-color: rgba(125, 207, 255, 0.15);
+    box-shadow: 0 2px 6px rgba(125, 207, 255, 0.2);
+}
+
+/* Memory */
+#memory {
+    color: #9ece6a;
+    border-color: rgba(158, 206, 106, 0.3);
+}
+
+#memory:hover {
+    background-color: rgba(158, 206, 106, 0.15);
+    box-shadow: 0 2px 6px rgba(158, 206, 106, 0.2);
+}
+
+/* Battery */
+#battery {
+    color: #e0af68;
+    border-color: rgba(224, 175, 104, 0.3);
+}
+
+#battery:hover {
+    background-color: rgba(224, 175, 104, 0.15);
+    box-shadow: 0 2px 6px rgba(224, 175, 104, 0.2);
+}
+
+#battery.critical {
+    color: #f7768e;
+    border-color: #f7768e;
+    animation: blink-battery 2s linear infinite alternate;
+}
+
+@keyframes blink-battery {
+    to {
+        background-color: rgba(247, 118, 142, 0.2);
+        border-color: rgba(247, 118, 142, 0.8);
+    }
+}
+
+#battery.warning {
+    color: #e0af68;
+    border-color: #e0af68;
+}
+
+#battery.charging {
+    color: #9ece6a;
+    border-color: #9ece6a;
+}
+
+/* Network */
+#network {
+    color: #7aa2f7;
+    border-color: rgba(122, 162, 247, 0.3);
+}
+
+#network:hover {
+    background-color: rgba(122, 162, 247, 0.15);
+    box-shadow: 0 2px 6px rgba(122, 162, 247, 0.2);
+}
+
+#network.disconnected {
+    color: #f7768e;
+    border-color: rgba(247, 118, 142, 0.3);
+}
+
+/* Audio */
+#pulseaudio {
+    color: #bb9af7;
+    border-color: rgba(187, 154, 247, 0.3);
+}
+
+#pulseaudio:hover {
+    background-color: rgba(187, 154, 247, 0.15);
+    box-shadow: 0 2px 6px rgba(187, 154, 247, 0.2);
+}
+
+#pulseaudio.muted {
+    color: #565f89;
+    border-color: rgba(86, 95, 137, 0.3);
+}
+
+/* System Tray */
+#tray {
+    padding: 4px 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: rgba(247, 118, 142, 0.2);
+    border-color: #f7768e;
+}
+
+/* Tooltip */
+tooltip {
+    background-color: rgba(26, 27, 38, 0.95);
+    border: 1px solid #7aa2f7;
+    border-radius: 6px;
+    color: #c0caf5;
+    font-family: 'JetBrains Mono Nerd Font', monospace;
+    font-size: 12px;
+}
+
+tooltip label {
+    color: #c0caf5;
+    padding: 4px;
+}
+
+/* Responsive Design */
+/* @media (max-width: 1366px) { */
+    /* window#waybar { */
+        /* font-size: 12px; */
+    /* } */
+    
+    /* #workspaces button { */
+        /* padding: 2px 6px; */
+    /* } */
+/* } */

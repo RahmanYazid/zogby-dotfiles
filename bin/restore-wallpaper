@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Restore last wallpaper on startup
+
+CURRENT_WALLPAPER="$HOME/.current-wallpaper"
+
+if [[ -f "$CURRENT_WALLPAPER" ]] && [[ -f "$(cat "$CURRENT_WALLPAPER")" ]]; then
+    wallpaper=$(cat "$CURRENT_WALLPAPER")
+    
+    # Set wallpaper based on available tools
+    if command -v swww >/dev/null 2>&1; then
+        swww img "$wallpaper" --transition-type fade
+    elif command -v hyprpaper >/dev/null 2>&1; then
+        hyprctl hyprpaper preload "$wallpaper"
+        hyprctl hyprpaper wallpaper ",$wallpaper"
+    elif command -v swaybg >/dev/null 2>&1; then
+        swaybg -i "$wallpaper" -m fill &
+    elif command -v feh >/dev/null 2>&1; then
+        feh --bg-fill "$wallpaper"
+    fi
+fi

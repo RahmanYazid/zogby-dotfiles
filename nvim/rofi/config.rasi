@@ -1,0 +1,182 @@
+/**
+ * Tokyo Night theme for Rofi
+ */
+
+* {
+    /* Tokyo Night Colors */
+    bg0:     #1a1b26;
+    bg1:     #24283b;
+    bg2:     #414868;
+    bg3:     #565f89;
+    fg0:     #c0caf5;
+    fg1:     #a9b1d6;
+    fg2:     #9aa5ce;
+    
+    /* Accent Colors */
+    accent:     #7aa2f7;
+    accent-alt: #bb9af7;
+    urgent:     #f7768e;
+    active:     #9ece6a;
+    cyan:       #7dcfff;
+    orange:     #e0af68;
+    
+    /* Base */
+    background-color: transparent;
+    text-color: @fg0;
+    font: "JetBrains Mono Nerd Font 12";
+}
+
+window {
+    background-color: @bg0;
+    border: 1px;
+    border-color: @accent;
+    border-radius: 10px;
+    width: 450px;
+    location: center;
+    anchor: center;
+}
+
+mainbox {
+    background-color: transparent;
+    children: [inputbar, listview];
+    spacing: 5px;
+    padding: 8px;
+}
+
+inputbar {
+    background-color: @bg1;
+    text-color: @fg0;
+    border: 0px;
+    border-radius: 4px;
+    padding: 6px 10px;
+    children: [prompt, entry];
+}
+
+prompt {
+    background-color: transparent;
+    text-color: @accent;
+    font: "JetBrains Mono Nerd Font Bold 12";
+}
+
+entry {
+    background-color: transparent;
+    text-color: @fg0;
+    placeholder-color: @fg2;
+    cursor: text;
+}
+
+listview {
+    background-color: transparent;
+    lines: 6;
+    columns: 1;
+    fixed-height: false;
+    scrollbar: false;
+    spacing: 1px;
+}
+
+element {
+    background-color: transparent;
+    text-color: @fg0;
+    border-radius: 3px;
+    padding: 6px 10px;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @fg0;
+}
+
+element normal.urgent {
+    background-color: transparent;
+    text-color: @urgent;
+}
+
+element normal.active {
+    background-color: transparent;
+    text-color: @active;
+}
+
+element selected.normal {
+    background-color: @accent;
+    text-color: @bg0;
+}
+
+element selected.urgent {
+    background-color: @urgent;
+    text-color: @bg0;
+}
+
+element selected.active {
+    background-color: @active;
+    text-color: @bg0;
+}
+
+element alternate.normal {
+    background-color: @bg1;
+    text-color: @fg1;
+}
+
+element alternate.urgent {
+    background-color: @bg1;
+    text-color: @urgent;
+}
+
+element alternate.active {
+    background-color: @bg1;
+    text-color: @active;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    cursor: inherit;
+    highlight: inherit;
+}
+
+element-icon {
+    background-color: transparent;
+    size: 16px;
+    cursor: inherit;
+}
+
+scrollbar {
+    background-color: @bg2;
+    handle-color: @accent;
+    border-radius: 10px;
+    width: 4px;
+}
+
+/* Mode switcher (if using modi) */
+mode-switcher {
+    background-color: transparent;
+    spacing: 0;
+}
+
+button {
+    background-color: @bg1;
+    text-color: @fg1;
+    border: 1px;
+    border-color: @bg2;
+    border-radius: 5px;
+    padding: 4px 8px;
+}
+
+button selected {
+    background-color: @accent;
+    text-color: @bg0;
+    border-color: @accent;
+}
+
+/* Message box */
+message {
+    background-color: @bg1;
+    border: 1px;
+    border-color: @accent;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+textbox {
+    background-color: transparent;
+    text-color: @fg0;
+}
