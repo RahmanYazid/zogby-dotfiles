@@ -1,14 +1,14 @@
-# 🗂️ My Dotfiles
+# My Dotfiles
 
-Konfigurasi pribadi untuk Arch Linux + Hyprland.
+Personal configuration for Arch Linux with Hyprland.
 
-## 📦 Tools yang dipakai
-- **Shell**: fish + custom prompt
-- **Terminal**: kitty
-- **WM**: Hyprland
-- **Launcher**: rofi
-- **Status bar**: waybar
-- **Editor**: neovim
+## Tools Used
+- Shell: fish with custom prompt
+- Terminal: kitty
+- Window Manager: Hyprland
+- Launcher: rofi
+- Status Bar: waybar
+- Editor: neovim
 
-## 📁 Struktur
+## Folder Structure
 
