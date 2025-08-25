@@ -17,14 +17,6 @@ Personal configuration for Arch Linux with Hyprland.
 
 Here are a few views of my dotfiles configuration:
 
-![Preview 1](screenshots/ss1.png)
-![Preview 2](screenshots/ss2.png)
-![Preview 3](screenshots/ss3.png)
-![Preview 4](screenshots/ss4.png)
-![Preview 5](screenshots/ss5.png)
-![Preview 6](screenshots/ss6.png)
-![Preview 6](screenshots/ss7.png)
-
 <div align="center">
   <img src="screenshots/ss1.png" width="400" />
   <img src="screenshots/ss2.png" width="400" />
@@ -35,13 +27,7 @@ Here are a few views of my dotfiles configuration:
   <img src="screenshots/ss7.png" width="400" /> 
 </div>
 
-[![Preview 1](screenshots/ss1.png)](screenshots/ss1.png)
-[![Preview 1](screenshots/ss2.png)](screenshots/ss2.png)
-[![Preview 1](screenshots/ss3.png)](screenshots/ss3.png)
-[![Preview 1](screenshots/ss4.png)](screenshots/ss4.png)
-[![Preview 1](screenshots/ss5.png)](screenshots/ss5.png)
-[![Preview 1](screenshots/ss6.png)](screenshots/ss6.png)
-[![Preview 1](screenshots/ss7.png)](screenshots/ss7.png)
+-----
 
 ## Folder Structure
 
