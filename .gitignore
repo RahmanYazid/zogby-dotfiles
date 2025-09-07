@@ -11,9 +11,6 @@ Thumbs.db
 .local/
 .history/
 
-# Ignore wallpapers if you don’t want them on GitHub
-Wallpapers/
-
 # Ignore compiled binaries
 *.o
 *.out
