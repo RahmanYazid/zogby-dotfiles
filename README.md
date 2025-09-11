@@ -4,14 +4,14 @@ Personal configuration for Arch Linux with Hyprland.
 
 ## Tools Used
 
-  - Shell: fish with a custom prompt
-  - Terminal: kitty
-  - Window Manager: Hyprland
-  - Launcher: rofi
-  - Status Bar: waybar
-  - Editor: neovim
+- Shell: fish with a custom prompt
+- Terminal: kitty
+- Window Manager: Hyprland
+- Launcher: rofi
+- Status Bar: waybar
+- Editor: neovim
 
------
+---
 
 ### Dotfiles Preview
 
@@ -27,7 +27,7 @@ Here are a few views of my dotfiles configuration:
   <img src="screenshots/ss7.png" width="400" /> 
 </div>
 
------
+---
 
 ## Folder Structure
 
@@ -41,7 +41,7 @@ Here are a few views of my dotfiles configuration:
 └── fish/
 ```
 
------
+---
 
 ## How to Install (Using GNU Stow) 🐧
 
@@ -89,7 +89,7 @@ stow hyprland waybar
 
 The command above will create symbolic links like this:
 
-  - `~/dotfiles/hyprland/.config/hypr/hyprland.conf` will become `~/.config/hypr/hyprland.conf`
+- `~/dotfiles/hyprland/.config/hypr/hyprland.conf` will become `~/.config/hypr/hyprland.conf`
 
 **To install all configurations at once:**
 
@@ -104,3 +104,7 @@ If you want to remove the symbolic links created by `stow`, use the `-D` or `--d
 ```bash
 stow -D hyprland waybar
 ```
+
+## Wallpapers
+
+- source: https://unsplash.com/photos/mt-fuji-n--CMLApjfI
